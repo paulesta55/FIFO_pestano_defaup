@@ -1,0 +1,890 @@
+Analysis & Synthesis report for fifo
+Mon Oct 15 17:23:54 2018
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |fifo_final|FIFO:fifo_int|SEQ:seqI|state
+  9. State Machine - |fifo_final|data_supply:data_sup|seq_fifo_data_supply:U_seq|etat_present
+ 10. User-Specified and Inferred Latches
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: Top-level Entity: |fifo_final
+ 16. Parameter Settings for User Entity Instance: data_supply:data_sup|udcptrn:U_genadrom
+ 17. Parameter Settings for User Entity Instance: data_supply:data_sup|gencptr:U_genfcptr|udcptrn:cpt4b
+ 18. Parameter Settings for User Entity Instance: FIFO:fifo_int
+ 19. Parameter Settings for User Entity Instance: FIFO:fifo_int|reg_N:regN
+ 20. Parameter Settings for User Entity Instance: FIFO:fifo_int|complement_a_2:comp2
+ 21. Parameter Settings for User Entity Instance: FIFO:fifo_int|genHL:genHLI|compteur_decompteur_N:compteur
+ 22. Parameter Settings for User Entity Instance: FIFO:fifo_int|SEQ:seqI
+ 23. Parameter Settings for User Entity Instance: FIFO:fifo_int|genaddr:genaddrI
+ 24. Parameter Settings for User Entity Instance: FIFO:fifo_int|genaddr:genaddrI|compteur_decompteur_N:compteuur_read
+ 25. Parameter Settings for User Entity Instance: FIFO:fifo_int|genaddr:genaddrI|compteur_decompteur_N:compteur_write
+ 26. Parameter Settings for User Entity Instance: FIFO:fifo_int|RAM_2pMxNbits:ram
+ 27. Parameter Settings for User Entity Instance: FIFO:fifo_int|fastslow:fs
+ 28. Parameter Settings for User Entity Instance: FIFO:fifo_int|fastslow:fs|compteur_decompteur_N:compteur_write
+ 29. Port Connectivity Checks: "FIFO:fifo_int|fastslow:fs|compteur_decompteur_N:compteur_write"
+ 30. Port Connectivity Checks: "FIFO:fifo_int|genaddr:genaddrI|compteur_decompteur_N:compteur_write"
+ 31. Port Connectivity Checks: "FIFO:fifo_int|genaddr:genaddrI|compteur_decompteur_N:compteuur_read"
+ 32. Port Connectivity Checks: "FIFO:fifo_int|genHL:genHLI|compteur_decompteur_N:compteur"
+ 33. Port Connectivity Checks: "FIFO:fifo_int"
+ 34. Port Connectivity Checks: "data_supply:data_sup|gencptr:U_genfcptr|udcptrn:cpt4b"
+ 35. Port Connectivity Checks: "data_supply:data_sup|udcptrn:U_genadrom"
+ 36. Port Connectivity Checks: "data_supply:data_sup|rom16x8:U_rom"
+ 37. Post-Synthesis Netlist Statistics for Top Partition
+ 38. Elapsed Time Per Partition
+ 39. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon Oct 15 17:23:54 2018       ;
+; Quartus Prime Version           ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
+; Revision Name                   ; fifo                                        ;
+; Top-level Entity Name           ; fifo_final                                  ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 45                                          ;
+; Total pins                      ; 12                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; fifo_final         ; fifo               ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                       ; Off                ; Off                ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Synthesis Seed                                                                  ; 1                  ; 1                  ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                           ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                    ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------+---------+
+; seq_fifo_data_supply.vhd         ; yes             ; User VHDL File  ; C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/seq_fifo_data_supply.vhd       ;         ;
+; SEQ.vhd                          ; yes             ; User VHDL File  ; C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/SEQ.vhd                        ;         ;
+; rom16x8.vhd                      ; yes             ; User VHDL File  ; C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/rom16x8.vhd                    ;         ;
+; reg_N.vhd                        ; yes             ; User VHDL File  ; C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/reg_N.vhd                      ;         ;
+; RAM_2pMxNbits.vhd                ; yes             ; User VHDL File  ; C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd              ;         ;
+; mon_package.vhd                  ; yes             ; User VHDL File  ; C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/mon_package.vhd                ;         ;
+; mes_composants_data_supply.vhd   ; yes             ; User VHDL File  ; C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/mes_composants_data_supply.vhd ;         ;
+; mes_composants.vhd               ; yes             ; User VHDL File  ; C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/mes_composants.vhd             ;         ;
+; genhl.vhd                        ; yes             ; User VHDL File  ; C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/genhl.vhd                      ;         ;
+; gencptr.vhd                      ; yes             ; User VHDL File  ; C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/gencptr.vhd                    ;         ;
+; genaddr.vhd                      ; yes             ; User VHDL File  ; C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/genaddr.vhd                    ;         ;
+; fifo_final.vhd                   ; yes             ; User VHDL File  ; C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/fifo_final.vhd                 ;         ;
+; FIFO.vhd                         ; yes             ; User VHDL File  ; C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/FIFO.vhd                       ;         ;
+; fastslow.vhd                     ; yes             ; User VHDL File  ; C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/fastslow.vhd                   ;         ;
+; data_supply.vhd                  ; yes             ; User VHDL File  ; C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/data_supply.vhd                ;         ;
+; cpt_dcpt_n_bits.vhd              ; yes             ; User VHDL File  ; C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/cpt_dcpt_n_bits.vhd            ;         ;
+; compteur_decompteur_N.vhd        ; yes             ; User VHDL File  ; C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/compteur_decompteur_N.vhd      ;         ;
+; complement_a_2.vhd               ; yes             ; User VHDL File  ; C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/complement_a_2.vhd             ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 112       ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 188       ;
+;     -- 7 input functions                    ; 0         ;
+;     -- 6 input functions                    ; 34        ;
+;     -- 5 input functions                    ; 6         ;
+;     -- 4 input functions                    ; 33        ;
+;     -- <=3 input functions                  ; 115       ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 45        ;
+;                                             ;           ;
+; I/O pins                                    ; 12        ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 45        ;
+; Total fan-out                               ; 859       ;
+; Average fan-out                             ; 3.34      ;
++---------------------------------------------+-----------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                ;
++-------------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------+-----------------------+--------------+
+; Compilation Hierarchy Node                      ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                             ; Entity Name           ; Library Name ;
++-------------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------+-----------------------+--------------+
+; |fifo_final                                     ; 188 (18)          ; 45 (0)       ; 0                 ; 0          ; 12   ; 0            ; |fifo_final                                                                     ; fifo_final            ; work         ;
+;    |FIFO:fifo_int|                              ; 156 (0)           ; 33 (0)       ; 0                 ; 0          ; 0    ; 0            ; |fifo_final|FIFO:fifo_int                                                       ; FIFO                  ; work         ;
+;       |RAM_2pMxNbits:ram|                       ; 117 (117)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fifo_final|FIFO:fifo_int|RAM_2pMxNbits:ram                                     ; RAM_2pMxNbits         ; work         ;
+;       |SEQ:seqI|                                ; 12 (12)           ; 13 (13)      ; 0                 ; 0          ; 0    ; 0            ; |fifo_final|FIFO:fifo_int|SEQ:seqI                                              ; SEQ                   ; work         ;
+;       |complement_a_2:comp2|                    ; 4 (4)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fifo_final|FIFO:fifo_int|complement_a_2:comp2                                  ; complement_a_2        ; work         ;
+;       |genHL:genHLI|                            ; 11 (3)            ; 8 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fifo_final|FIFO:fifo_int|genHL:genHLI                                          ; genHL                 ; work         ;
+;          |compteur_decompteur_N:compteur|       ; 8 (8)             ; 8 (8)        ; 0                 ; 0          ; 0    ; 0            ; |fifo_final|FIFO:fifo_int|genHL:genHLI|compteur_decompteur_N:compteur           ; compteur_decompteur_N ; work         ;
+;       |genaddr:genaddrI|                        ; 12 (4)            ; 8 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fifo_final|FIFO:fifo_int|genaddr:genaddrI                                      ; genaddr               ; work         ;
+;          |compteur_decompteur_N:compteur_write| ; 4 (4)             ; 4 (4)        ; 0                 ; 0          ; 0    ; 0            ; |fifo_final|FIFO:fifo_int|genaddr:genaddrI|compteur_decompteur_N:compteur_write ; compteur_decompteur_N ; work         ;
+;          |compteur_decompteur_N:compteuur_read| ; 4 (4)             ; 4 (4)        ; 0                 ; 0          ; 0    ; 0            ; |fifo_final|FIFO:fifo_int|genaddr:genaddrI|compteur_decompteur_N:compteuur_read ; compteur_decompteur_N ; work         ;
+;       |reg_N:regN|                              ; 0 (0)             ; 4 (4)        ; 0                 ; 0          ; 0    ; 0            ; |fifo_final|FIFO:fifo_int|reg_N:regN                                            ; reg_N                 ; work         ;
+;    |data_supply:data_sup|                       ; 14 (0)            ; 12 (0)       ; 0                 ; 0          ; 0    ; 0            ; |fifo_final|data_supply:data_sup                                                ; data_supply           ; work         ;
+;       |gencptr:U_genfcptr|                      ; 5 (1)             ; 4 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fifo_final|data_supply:data_sup|gencptr:U_genfcptr                             ; gencptr               ; work         ;
+;          |udcptrn:cpt4b|                        ; 4 (4)             ; 4 (4)        ; 0                 ; 0          ; 0    ; 0            ; |fifo_final|data_supply:data_sup|gencptr:U_genfcptr|udcptrn:cpt4b               ; udcptrn               ; work         ;
+;       |seq_fifo_data_supply:U_seq|              ; 4 (4)             ; 4 (4)        ; 0                 ; 0          ; 0    ; 0            ; |fifo_final|data_supply:data_sup|seq_fifo_data_supply:U_seq                     ; seq_fifo_data_supply  ; work         ;
+;       |udcptrn:U_genadrom|                      ; 5 (5)             ; 4 (4)        ; 0                 ; 0          ; 0    ; 0            ; |fifo_final|data_supply:data_sup|udcptrn:U_genadrom                             ; udcptrn               ; work         ;
++-------------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------+-----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------+
+; State Machine - |fifo_final|FIFO:fifo_int|SEQ:seqI|state           ;
++------------+----------+---------+----------+----------+------------+
+; Name       ; state.WT ; state.W ; state.R2 ; state.R1 ; state.Rest ;
++------------+----------+---------+----------+----------+------------+
+; state.Rest ; 0        ; 0       ; 0        ; 0        ; 0          ;
+; state.R1   ; 0        ; 0       ; 0        ; 1        ; 1          ;
+; state.R2   ; 0        ; 0       ; 1        ; 0        ; 1          ;
+; state.W    ; 0        ; 1       ; 0        ; 0        ; 1          ;
+; state.WT   ; 1        ; 0       ; 0        ; 0        ; 1          ;
++------------+----------+---------+----------+----------+------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------+
+; State Machine - |fifo_final|data_supply:data_sup|seq_fifo_data_supply:U_seq|etat_present                          ;
++-----------------------+-----------------------+----------------------+-----------------------+--------------------+
+; Name                  ; etat_present.att_cptr ; etat_present.att_ack ; etat_present.ecriture ; etat_present.repos ;
++-----------------------+-----------------------+----------------------+-----------------------+--------------------+
+; etat_present.repos    ; 0                     ; 0                    ; 0                     ; 0                  ;
+; etat_present.ecriture ; 0                     ; 0                    ; 1                     ; 1                  ;
+; etat_present.att_ack  ; 0                     ; 1                    ; 0                     ; 1                  ;
+; etat_present.att_cptr ; 1                     ; 0                    ; 0                     ; 1                  ;
++-----------------------+-----------------------+----------------------+-----------------------+--------------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                         ;
++------------------------------------------------------+-----------------------------+------------------------+
+; Latch Name                                           ; Latch Enable Signal         ; Free of Timing Hazards ;
++------------------------------------------------------+-----------------------------+------------------------+
+; FIFO:fifo_int|RAM_2pMxNbits:ram|Dout[0]$latch        ; FIFO:fifo_int|SEQ:seqI|RW_n ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|Dout[0]_81           ; FIFO:fifo_int|SEQ:seqI|RW_n ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|Dout[1]$latch        ; FIFO:fifo_int|SEQ:seqI|RW_n ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|Dout[2]$latch        ; FIFO:fifo_int|SEQ:seqI|RW_n ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|Dout[3]$latch        ; FIFO:fifo_int|SEQ:seqI|RW_n ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|Dout[4]$latch        ; FIFO:fifo_int|SEQ:seqI|RW_n ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|Dout[5]$latch        ; FIFO:fifo_int|SEQ:seqI|RW_n ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|Dout[6]$latch        ; FIFO:fifo_int|SEQ:seqI|RW_n ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|Dout[7]$latch        ; FIFO:fifo_int|SEQ:seqI|RW_n ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~0               ; rtl~0                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~8               ; rtl~1                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~16              ; rtl~2                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~24              ; rtl~3                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~32              ; rtl~4                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~40              ; rtl~5                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~48              ; rtl~6                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~56              ; rtl~7                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~64              ; rtl~8                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~72              ; rtl~9                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~80              ; rtl~10                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~88              ; rtl~11                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~96              ; rtl~12                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~104             ; rtl~13                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~112             ; rtl~14                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~120             ; rtl~15                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~1               ; rtl~0                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~33              ; rtl~4                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~65              ; rtl~8                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~97              ; rtl~12                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~9               ; rtl~1                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~41              ; rtl~5                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~73              ; rtl~9                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~105             ; rtl~13                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~17              ; rtl~2                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~49              ; rtl~6                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~81              ; rtl~10                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~113             ; rtl~14                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~25              ; rtl~3                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~57              ; rtl~7                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~89              ; rtl~11                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~121             ; rtl~15                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~2               ; rtl~0                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~10              ; rtl~1                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~18              ; rtl~2                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~26              ; rtl~3                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~34              ; rtl~4                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~42              ; rtl~5                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~50              ; rtl~6                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~58              ; rtl~7                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~66              ; rtl~8                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~74              ; rtl~9                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~82              ; rtl~10                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~90              ; rtl~11                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~98              ; rtl~12                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~106             ; rtl~13                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~114             ; rtl~14                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~122             ; rtl~15                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~3               ; rtl~0                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~35              ; rtl~4                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~67              ; rtl~8                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~99              ; rtl~12                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~11              ; rtl~1                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~43              ; rtl~5                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~75              ; rtl~9                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~107             ; rtl~13                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~19              ; rtl~2                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~51              ; rtl~6                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~83              ; rtl~10                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~115             ; rtl~14                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~27              ; rtl~3                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~59              ; rtl~7                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~91              ; rtl~11                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~123             ; rtl~15                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~4               ; rtl~0                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~12              ; rtl~1                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~20              ; rtl~2                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~28              ; rtl~3                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~36              ; rtl~4                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~44              ; rtl~5                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~52              ; rtl~6                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~60              ; rtl~7                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~68              ; rtl~8                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~76              ; rtl~9                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~84              ; rtl~10                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~92              ; rtl~11                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~100             ; rtl~12                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~108             ; rtl~13                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~116             ; rtl~14                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~124             ; rtl~15                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~5               ; rtl~0                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~37              ; rtl~4                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~69              ; rtl~8                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~101             ; rtl~12                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~13              ; rtl~1                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~45              ; rtl~5                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~77              ; rtl~9                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~109             ; rtl~13                      ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~21              ; rtl~2                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~53              ; rtl~6                       ; yes                    ;
+; FIFO:fifo_int|RAM_2pMxNbits:ram|data~85              ; rtl~10                      ; yes                    ;
+; Number of user-specified and inferred latches = 137  ;                             ;                        ;
++------------------------------------------------------+-----------------------------+------------------------+
+Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; FIFO:fifo_int|reg_N:regN|Q[4..7]      ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 4 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 45    ;
+; Number of registers using Synchronous Clear  ; 19    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 21    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 14    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; FIFO:fifo_int|SEQ:seqI|RW_n            ; 10      ;
+; FIFO:fifo_int|SEQ:seqI|CS_n            ; 9       ;
+; FIFO:fifo_int|SEQ:seqI|OE              ; 1       ;
+; FIFO:fifo_int|SEQ:seqI|Ack             ; 4       ;
+; Total number of inverted registers = 4 ;         ;
++----------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |fifo_final|data_supply:data_sup|udcptrn:U_genadrom|tmp[3] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |fifo_final ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; N              ; 8     ; Signed Integer                                    ;
+; M              ; 4     ; Signed Integer                                    ;
++----------------+-------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: data_supply:data_sup|udcptrn:U_genadrom ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; n              ; 4     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: data_supply:data_sup|gencptr:U_genfcptr|udcptrn:cpt4b ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; n              ; 4     ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIFO:fifo_int ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; n              ; 8     ; Signed Integer                    ;
+; m              ; 4     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIFO:fifo_int|reg_N:regN ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; n              ; 8     ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIFO:fifo_int|complement_a_2:comp2 ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; n              ; 8     ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIFO:fifo_int|genHL:genHLI|compteur_decompteur_N:compteur ;
++----------------+-------+-------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                          ;
++----------------+-------+-------------------------------------------------------------------------------+
+; n              ; 8     ; Signed Integer                                                                ;
++----------------+-------+-------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIFO:fifo_int|SEQ:seqI ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; n              ; 8     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIFO:fifo_int|genaddr:genaddrI ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; m              ; 4     ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIFO:fifo_int|genaddr:genaddrI|compteur_decompteur_N:compteuur_read ;
++----------------+-------+-----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------------+
+; n              ; 4     ; Signed Integer                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIFO:fifo_int|genaddr:genaddrI|compteur_decompteur_N:compteur_write ;
++----------------+-------+-----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------------+
+; n              ; 4     ; Signed Integer                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIFO:fifo_int|RAM_2pMxNbits:ram ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; m              ; 4     ; Signed Integer                                      ;
+; n              ; 8     ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIFO:fifo_int|fastslow:fs ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; m              ; 4     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIFO:fifo_int|fastslow:fs|compteur_decompteur_N:compteur_write ;
++----------------+-------+------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                               ;
++----------------+-------+------------------------------------------------------------------------------------+
+; n              ; 4     ; Signed Integer                                                                     ;
++----------------+-------+------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FIFO:fifo_int|fastslow:fs|compteur_decompteur_N:compteur_write"                        ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; q[1..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FIFO:fifo_int|genaddr:genaddrI|compteur_decompteur_N:compteur_write" ;
++--------+-------+----------+---------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                             ;
++--------+-------+----------+---------------------------------------------------------------------+
+; updown ; Input ; Info     ; Stuck at VCC                                                        ;
++--------+-------+----------+---------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FIFO:fifo_int|genaddr:genaddrI|compteur_decompteur_N:compteuur_read" ;
++--------+-------+----------+---------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                             ;
++--------+-------+----------+---------------------------------------------------------------------+
+; updown ; Input ; Info     ; Stuck at VCC                                                        ;
++--------+-------+----------+---------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FIFO:fifo_int|genHL:genHLI|compteur_decompteur_N:compteur" ;
++--------+-------+----------+-----------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                   ;
++--------+-------+----------+-----------------------------------------------------------+
+; updown ; Input ; Info     ; Stuck at VCC                                              ;
+; en     ; Input ; Info     ; Stuck at VCC                                              ;
++--------+-------+----------+-----------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FIFO:fifo_int"                                                                      ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; fast ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; slow ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Port Connectivity Checks: "data_supply:data_sup|gencptr:U_genfcptr|udcptrn:cpt4b" ;
++--------+-------+----------+-------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                               ;
++--------+-------+----------+-------------------------------------------------------+
+; ud     ; Input ; Info     ; Stuck at VCC                                          ;
+; enable ; Input ; Info     ; Stuck at VCC                                          ;
++--------+-------+----------+-------------------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "data_supply:data_sup|udcptrn:U_genadrom" ;
++------+-------+----------+-------------------------------------------+
+; Port ; Type  ; Severity ; Details                                   ;
++------+-------+----------+-------------------------------------------+
+; ud   ; Input ; Info     ; Stuck at VCC                              ;
++------+-------+----------+-------------------------------------------+
+
+
++----------------------------------------------------------------+
+; Port Connectivity Checks: "data_supply:data_sup|rom16x8:U_rom" ;
++------+-------+----------+--------------------------------------+
+; Port ; Type  ; Severity ; Details                              ;
++------+-------+----------+--------------------------------------+
+; csb  ; Input ; Info     ; Stuck at GND                         ;
+; oe   ; Input ; Info     ; Stuck at VCC                         ;
++------+-------+----------+--------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 45                          ;
+;     CLR               ; 19                          ;
+;     ENA               ; 1                           ;
+;     ENA CLR           ; 2                           ;
+;     ENA SCLR          ; 11                          ;
+;     SCLR              ; 8                           ;
+;     plain             ; 4                           ;
+; arriav_io_obuf        ; 8                           ;
+; arriav_lcell_comb     ; 188                         ;
+;     arith             ; 8                           ;
+;         1 data inputs ; 8                           ;
+;     normal            ; 180                         ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 10                          ;
+;         3 data inputs ; 94                          ;
+;         4 data inputs ; 33                          ;
+;         5 data inputs ; 6                           ;
+;         6 data inputs ; 34                          ;
+; boundary_port         ; 12                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.59                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+    Info: Processing started: Mon Oct 15 17:23:38 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fifo -c fifo
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file seq_fifo_data_supply.vhd
+    Info (12022): Found design unit 1: seq_fifo_data_supply-seq_fifo_data_supply File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/seq_fifo_data_supply.vhd Line: 16
+    Info (12023): Found entity 1: seq_fifo_data_supply File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/seq_fifo_data_supply.vhd Line: 9
+Info (12021): Found 3 design units, including 1 entities, in source file seq.vhd
+    Info (12022): Found design unit 1: SEQ-Mealy File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/SEQ.vhd Line: 16
+    Info (12022): Found design unit 2: seq-Moore File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/SEQ.vhd Line: 54
+    Info (12023): Found entity 1: SEQ File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/SEQ.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file rom16x8.vhd
+    Info (12022): Found design unit 1: rom16x8-rom16x8 File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/rom16x8.vhd Line: 18
+    Info (12023): Found entity 1: rom16x8 File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/rom16x8.vhd Line: 10
+Info (12021): Found 2 design units, including 1 entities, in source file reg_n.vhd
+    Info (12022): Found design unit 1: reg_N-regN1 File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/reg_N.vhd Line: 18
+    Info (12023): Found entity 1: reg_N File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/reg_N.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file ram_2pmxnbits.vhd
+    Info (12022): Found design unit 1: RAM_2pMxNbits-ram File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 17
+    Info (12023): Found entity 1: RAM_2pMxNbits File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file mux2xn_1xn.vhd
+    Info (12022): Found design unit 1: mux2xN_1xN-mux2xN_1xN File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/mux2xN_1xN.vhd Line: 16
+    Info (12023): Found entity 1: mux2xN_1xN File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/mux2xN_1xN.vhd Line: 8
+Info (12021): Found 4 design units, including 0 entities, in source file mon_package.vhd
+    Info (12022): Found design unit 1: mes_fonctions File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/mon_package.vhd Line: 7
+    Info (12022): Found design unit 2: mes_fonctions-body File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/mon_package.vhd Line: 12
+    Info (12022): Found design unit 3: CHECK_PKG File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/mon_package.vhd Line: 27
+    Info (12022): Found design unit 4: CHECK_PKG-body File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/mon_package.vhd Line: 51
+Info (12021): Found 1 design units, including 0 entities, in source file mes_composants_data_supply.vhd
+    Info (12022): Found design unit 1: mes_composants_data_supply File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/mes_composants_data_supply.vhd Line: 4
+Info (12021): Found 1 design units, including 0 entities, in source file mes_composants.vhd
+    Info (12022): Found design unit 1: mes_composants File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/mes_composants.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file genhl.vhd
+    Info (12022): Found design unit 1: genHL-genHL File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/genhl.vhd Line: 17
+    Info (12023): Found entity 1: genHL File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/genhl.vhd Line: 11
+Info (12021): Found 2 design units, including 1 entities, in source file gencptr.vhd
+    Info (12022): Found design unit 1: gencptr-gencptr File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/gencptr.vhd Line: 11
+    Info (12023): Found entity 1: gencptr File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/gencptr.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file genaddr.vhd
+    Info (12022): Found design unit 1: genaddr-genaddr File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/genaddr.vhd Line: 18
+    Info (12023): Found entity 1: genaddr File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/genaddr.vhd Line: 10
+Info (12021): Found 2 design units, including 1 entities, in source file fifo_final.vhd
+    Info (12022): Found design unit 1: fifo_final-fifo_final_1 File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/fifo_final.vhd Line: 22
+    Info (12023): Found entity 1: fifo_final File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/fifo_final.vhd Line: 10
+Info (12021): Found 2 design units, including 1 entities, in source file fifo.vhd
+    Info (12022): Found design unit 1: FIFO-fifo1 File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/FIFO.vhd Line: 22
+    Info (12023): Found entity 1: FIFO File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/FIFO.vhd Line: 10
+Info (12021): Found 2 design units, including 1 entities, in source file fastslow.vhd
+    Info (12022): Found design unit 1: fastslow-fastslow File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/fastslow.vhd Line: 17
+    Info (12023): Found entity 1: fastslow File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/fastslow.vhd Line: 10
+Info (12021): Found 2 design units, including 1 entities, in source file div2_n.vhd
+    Info (12022): Found design unit 1: div2_N-div2_N File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/div2_N.vhd Line: 14
+    Info (12023): Found entity 1: div2_N File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/div2_N.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file div2.vhd
+    Info (12022): Found design unit 1: div2-div2 File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/div2.vhd Line: 15
+    Info (12023): Found entity 1: div2 File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/div2.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file data_supply.vhd
+    Info (12022): Found design unit 1: data_supply-data_supply File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/data_supply.vhd Line: 18
+    Info (12023): Found entity 1: data_supply File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/data_supply.vhd Line: 10
+Info (12021): Found 2 design units, including 1 entities, in source file cpt_dcpt_n_bits.vhd
+    Info (12022): Found design unit 1: udcptrn-comp File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/cpt_dcpt_n_bits.vhd Line: 10
+    Info (12023): Found entity 1: udcptrn File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/cpt_dcpt_n_bits.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file compteur_decompteur_n.vhd
+    Info (12022): Found design unit 1: compteur_decompteur_N-comp File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/compteur_decompteur_N.vhd Line: 16
+    Info (12023): Found entity 1: compteur_decompteur_N File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/compteur_decompteur_N.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file complement_a_2.vhd
+    Info (12022): Found design unit 1: complement_a_2-archi_complement_a_2 File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/complement_a_2.vhd Line: 16
+    Info (12023): Found entity 1: complement_a_2 File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/complement_a_2.vhd Line: 10
+Info (12127): Elaborating entity "fifo_final" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at fifo_final.vhd(25): object "fast" assigned a value but never read File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/fifo_final.vhd Line: 25
+Warning (10036): Verilog HDL or VHDL warning at fifo_final.vhd(26): object "slow" assigned a value but never read File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/fifo_final.vhd Line: 26
+Info (12128): Elaborating entity "data_supply" for hierarchy "data_supply:data_sup" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/fifo_final.vhd Line: 30
+Info (12128): Elaborating entity "rom16x8" for hierarchy "data_supply:data_sup|rom16x8:U_rom" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/data_supply.vhd Line: 24
+Info (12128): Elaborating entity "udcptrn" for hierarchy "data_supply:data_sup|udcptrn:U_genadrom" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/data_supply.vhd Line: 25
+Info (12128): Elaborating entity "gencptr" for hierarchy "data_supply:data_sup|gencptr:U_genfcptr" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/data_supply.vhd Line: 26
+Info (12128): Elaborating entity "seq_fifo_data_supply" for hierarchy "data_supply:data_sup|seq_fifo_data_supply:U_seq" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/data_supply.vhd Line: 27
+Info (12128): Elaborating entity "FIFO" for hierarchy "FIFO:fifo_int" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/fifo_final.vhd Line: 31
+Info (12128): Elaborating entity "reg_N" for hierarchy "FIFO:fifo_int|reg_N:regN" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/FIFO.vhd Line: 35
+Info (12128): Elaborating entity "complement_a_2" for hierarchy "FIFO:fifo_int|complement_a_2:comp2" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/FIFO.vhd Line: 38
+Info (12128): Elaborating entity "genHL" for hierarchy "FIFO:fifo_int|genHL:genHLI" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/FIFO.vhd Line: 41
+Info (12128): Elaborating entity "compteur_decompteur_N" for hierarchy "FIFO:fifo_int|genHL:genHLI|compteur_decompteur_N:compteur" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/genhl.vhd Line: 24
+Warning (10492): VHDL Process Statement warning at compteur_decompteur_N.vhd(22): signal "EN" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/compteur_decompteur_N.vhd Line: 22
+Info (12128): Elaborating entity "SEQ" for hierarchy "FIFO:fifo_int|SEQ:seqI" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/FIFO.vhd Line: 43
+Info (12128): Elaborating entity "genaddr" for hierarchy "FIFO:fifo_int|genaddr:genaddrI" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/FIFO.vhd Line: 47
+Info (12128): Elaborating entity "compteur_decompteur_N" for hierarchy "FIFO:fifo_int|genaddr:genaddrI|compteur_decompteur_N:compteuur_read" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/genaddr.vhd Line: 24
+Warning (10492): VHDL Process Statement warning at compteur_decompteur_N.vhd(22): signal "EN" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/compteur_decompteur_N.vhd Line: 22
+Info (12128): Elaborating entity "RAM_2pMxNbits" for hierarchy "FIFO:fifo_int|RAM_2pMxNbits:ram" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/FIFO.vhd Line: 50
+Warning (10492): VHDL Process Statement warning at RAM_2pMxNbits.vhd(31): signal "data" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 31
+Warning (10631): VHDL Process Statement warning at RAM_2pMxNbits.vhd(23): inferring latch(es) for signal or variable "Dout", which holds its previous value in one or more paths through the process File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 23
+Info (10041): Inferred latch for "Dout[0]" at RAM_2pMxNbits.vhd(23) File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 23
+Info (10041): Inferred latch for "Dout[1]" at RAM_2pMxNbits.vhd(23) File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 23
+Info (10041): Inferred latch for "Dout[2]" at RAM_2pMxNbits.vhd(23) File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 23
+Info (10041): Inferred latch for "Dout[3]" at RAM_2pMxNbits.vhd(23) File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 23
+Info (10041): Inferred latch for "Dout[4]" at RAM_2pMxNbits.vhd(23) File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 23
+Info (10041): Inferred latch for "Dout[5]" at RAM_2pMxNbits.vhd(23) File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 23
+Info (10041): Inferred latch for "Dout[6]" at RAM_2pMxNbits.vhd(23) File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 23
+Info (10041): Inferred latch for "Dout[7]" at RAM_2pMxNbits.vhd(23) File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 23
+Info (12128): Elaborating entity "fastslow" for hierarchy "FIFO:fifo_int|fastslow:fs" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/FIFO.vhd Line: 53
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "data_supply:data_sup|rom16x8:U_rom|dataout[0]" feeding internal logic into a wire File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/rom16x8.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "data_supply:data_sup|rom16x8:U_rom|dataout[1]" feeding internal logic into a wire File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/rom16x8.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "data_supply:data_sup|rom16x8:U_rom|dataout[2]" feeding internal logic into a wire File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/rom16x8.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "data_supply:data_sup|rom16x8:U_rom|dataout[3]" feeding internal logic into a wire File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/rom16x8.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "data_supply:data_sup|rom16x8:U_rom|dataout[4]" feeding internal logic into a wire File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/rom16x8.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "data_supply:data_sup|rom16x8:U_rom|dataout[5]" feeding internal logic into a wire File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/rom16x8.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "data_supply:data_sup|rom16x8:U_rom|dataout[6]" feeding internal logic into a wire File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/rom16x8.vhd Line: 14
+    Warning (13049): Converted tri-state buffer "data_supply:data_sup|rom16x8:U_rom|dataout[7]" feeding internal logic into a wire File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/rom16x8.vhd Line: 14
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~5" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~4" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~6" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~4" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~7" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~4" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~13" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~12" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~14" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~12" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~15" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~12" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~21" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~20" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~22" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~20" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~23" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~20" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~29" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~28" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~30" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~28" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~31" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~28" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~37" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~36" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~38" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~36" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~39" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~36" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~45" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~44" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~46" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~44" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~47" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~44" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~53" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~52" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~54" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~52" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~55" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~52" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~61" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~60" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~62" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~60" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~63" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~60" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~69" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~68" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~70" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~68" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~71" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~68" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~77" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~76" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~78" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~76" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~79" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~76" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~85" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~84" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~86" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~84" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~87" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~84" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~93" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~92" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~94" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~92" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~95" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~92" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~101" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~100" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~102" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~100" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~103" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~100" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~109" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~108" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~110" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~108" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~111" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~108" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~117" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~116" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~118" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~116" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~119" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~116" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~125" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~124" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~126" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~124" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~127" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|data~124" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 20
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|Dout[6]$latch" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|Dout[4]$latch" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 23
+    Info (13026): Duplicate LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|Dout[7]$latch" merged with LATCH primitive "FIFO:fifo_int|RAM_2pMxNbits:ram|Dout[5]$latch" File: C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/RAM_2pMxNbits.vhd Line: 23
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 206 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 9 output pins
+    Info (21061): Implemented 194 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 913 megabytes
+    Info: Processing ended: Mon Oct 15 17:23:54 2018
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:33
+
+

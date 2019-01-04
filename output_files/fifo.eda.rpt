@@ -1,0 +1,61 @@
+EDA Netlist Writer report for fifo
+Mon Oct 15 17:25:00 2018
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. EDA Netlist Writer Summary
+  3. EDA Netlist Writer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------+
+; EDA Netlist Writer Summary                                        ;
++---------------------------+---------------------------------------+
+; EDA Netlist Writer Status ; Successful - Mon Oct 15 17:25:00 2018 ;
+; Revision Name             ; fifo                                  ;
+; Top-level Entity Name     ; fifo_final                            ;
+; Family                    ; Cyclone V                             ;
++---------------------------+---------------------------------------+
+
+
++-----------------------------+
+; EDA Netlist Writer Messages ;
++-----------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime EDA Netlist Writer
+    Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+    Info: Processing started: Mon Oct 15 17:24:59 2018
+Info: Command: quartus_eda --read_settings_files=on --write_settings_files=off fifo -c fifo --gen_testbench
+Info (119006): Selected device 5CSEMA5F31C6 for design "fifo"
+Info (201002): Generated VHDL Test Bench File C:/Users/gregdefa95.SMBEDU/Documents/3A/VHDL/TP1/simulation/modelsim/fifo_final.vht for simulation
+Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 777 megabytes
+    Info: Processing ended: Mon Oct 15 17:25:00 2018
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

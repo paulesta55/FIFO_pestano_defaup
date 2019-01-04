@@ -1,0 +1,441 @@
+|fifo_final
+clk => data_supply:data_sup.clk
+clk => FIFO:fifo_int.clk
+reset => data_supply:data_sup.reset
+reset => FIFO:fifo_int.reset
+start => data_supply:data_sup.start
+HL << FIFO:fifo_int.HL
+Data_out[0] << FIFO:fifo_int.Data_out[0]
+Data_out[1] << FIFO:fifo_int.Data_out[1]
+Data_out[2] << FIFO:fifo_int.Data_out[2]
+Data_out[3] << FIFO:fifo_int.Data_out[3]
+Data_out[4] << FIFO:fifo_int.Data_out[4]
+Data_out[5] << FIFO:fifo_int.Data_out[5]
+Data_out[6] << FIFO:fifo_int.Data_out[6]
+Data_out[7] << FIFO:fifo_int.Data_out[7]
+
+
+|fifo_final|data_supply:data_sup
+clk => udcptrn:U_genadrom.clk
+clk => gencptr:U_genfcptr.CLK
+clk => seq_fifo_data_supply:U_seq.clk
+reset => udcptrn:U_genadrom.reset
+reset => gencptr:U_genfcptr.RESET1
+reset => seq_fifo_data_supply:U_seq.reset
+ack => seq_fifo_data_supply:U_seq.ack
+start => seq_fifo_data_supply:U_seq.start
+req <= seq_fifo_data_supply:U_seq.req
+data_out[0] <= rom16x8:U_rom.dataout[0]
+data_out[1] <= rom16x8:U_rom.dataout[1]
+data_out[2] <= rom16x8:U_rom.dataout[2]
+data_out[3] <= rom16x8:U_rom.dataout[3]
+data_out[4] <= rom16x8:U_rom.dataout[4]
+data_out[5] <= rom16x8:U_rom.dataout[5]
+data_out[6] <= rom16x8:U_rom.dataout[6]
+data_out[7] <= rom16x8:U_rom.dataout[7]
+
+
+|fifo_final|data_supply:data_sup|rom16x8:U_rom
+csb => dataout.IN0
+OE => dataout.IN1
+adr[0] => dataout[0].DATAIN
+adr[1] => dataout[1].DATAIN
+adr[2] => dataout[2].DATAIN
+adr[3] => dataout[3].DATAIN
+dataout[0] <= dataout[0].DB_MAX_OUTPUT_PORT_TYPE
+dataout[1] <= dataout[1].DB_MAX_OUTPUT_PORT_TYPE
+dataout[2] <= dataout[2].DB_MAX_OUTPUT_PORT_TYPE
+dataout[3] <= dataout[3].DB_MAX_OUTPUT_PORT_TYPE
+dataout[4] <= dataout[4].DB_MAX_OUTPUT_PORT_TYPE
+dataout[5] <= dataout[5].DB_MAX_OUTPUT_PORT_TYPE
+dataout[6] <= dataout[6].DB_MAX_OUTPUT_PORT_TYPE
+dataout[7] <= dataout[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fifo_final|data_supply:data_sup|udcptrn:U_genadrom
+ud => tmp.OUTPUTSELECT
+ud => tmp.OUTPUTSELECT
+ud => tmp.OUTPUTSELECT
+ud => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+clk => tmp[0].CLK
+clk => tmp[1].CLK
+clk => tmp[2].CLK
+clk => tmp[3].CLK
+enable => tmp.OUTPUTSELECT
+enable => tmp.OUTPUTSELECT
+enable => tmp.OUTPUTSELECT
+enable => tmp.OUTPUTSELECT
+q[0] <= tmp[0].DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= tmp[1].DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= tmp[2].DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= tmp[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fifo_final|data_supply:data_sup|gencptr:U_genfcptr
+RESET1 => reset.IN1
+CLK => udcptrn:cpt4b.clk
+ENREAD <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fifo_final|data_supply:data_sup|gencptr:U_genfcptr|udcptrn:cpt4b
+ud => tmp.OUTPUTSELECT
+ud => tmp.OUTPUTSELECT
+ud => tmp.OUTPUTSELECT
+ud => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+clk => tmp[0].CLK
+clk => tmp[1].CLK
+clk => tmp[2].CLK
+clk => tmp[3].CLK
+enable => tmp.OUTPUTSELECT
+enable => tmp.OUTPUTSELECT
+enable => tmp.OUTPUTSELECT
+enable => tmp.OUTPUTSELECT
+q[0] <= tmp[0].DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= tmp[1].DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= tmp[2].DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= tmp[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fifo_final|data_supply:data_sup|seq_fifo_data_supply:U_seq
+clk => etat_present~2.DATAIN
+reset => etat_present~4.DATAIN
+ack => Selector0.IN2
+ack => Selector2.IN3
+ack => Selector1.IN1
+start => etat_present.DATAB
+start => Selector0.IN1
+fcptr => Selector0.IN3
+fcptr => Selector2.IN1
+req <= enable_cptr.DB_MAX_OUTPUT_PORT_TYPE
+enable_cptr <= enable_cptr.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fifo_final|FIFO:fifo_int
+Din[0] => reg_N:regN.D[0]
+Din[1] => reg_N:regN.D[1]
+Din[2] => reg_N:regN.D[2]
+Din[3] => reg_N:regN.D[3]
+Din[4] => reg_N:regN.D[4]
+Din[5] => reg_N:regN.D[5]
+Din[6] => reg_N:regN.D[6]
+Din[7] => reg_N:regN.D[7]
+clk => reg_N:regN.clk
+clk => genHL:genHLI.clk
+clk => SEQ:seqI.clk
+clk => genaddr:genaddrI.clk
+clk => fastslow:fs.clk
+reset => reg_N:regN.reset
+reset => genHL:genHLI.reset
+reset => SEQ:seqI.reset
+reset => genaddr:genaddrI.reset
+reset => fastslow:fs.reset
+Req => SEQ:seqI.REQ
+Ack <= SEQ:seqI.Ack
+HL <= SEQ:seqI.HL
+fast <= fastslow:fs.fast
+slow <= fastslow:fs.slow
+Data_out[0] <= RAM_2pMxNbits:ram.Dout[0]
+Data_out[1] <= RAM_2pMxNbits:ram.Dout[1]
+Data_out[2] <= RAM_2pMxNbits:ram.Dout[2]
+Data_out[3] <= RAM_2pMxNbits:ram.Dout[3]
+Data_out[4] <= RAM_2pMxNbits:ram.Dout[4]
+Data_out[5] <= RAM_2pMxNbits:ram.Dout[5]
+Data_out[6] <= RAM_2pMxNbits:ram.Dout[6]
+Data_out[7] <= RAM_2pMxNbits:ram.Dout[7]
+
+
+|fifo_final|FIFO:fifo_int|reg_N:regN
+reset => Q[0]~reg0.ACLR
+reset => Q[1]~reg0.ACLR
+reset => Q[2]~reg0.ACLR
+reset => Q[3]~reg0.ACLR
+reset => Q[4]~reg0.ACLR
+reset => Q[5]~reg0.ACLR
+reset => Q[6]~reg0.ACLR
+reset => Q[7]~reg0.ACLR
+clk => Q[0]~reg0.CLK
+clk => Q[1]~reg0.CLK
+clk => Q[2]~reg0.CLK
+clk => Q[3]~reg0.CLK
+clk => Q[4]~reg0.CLK
+clk => Q[5]~reg0.CLK
+clk => Q[6]~reg0.CLK
+clk => Q[7]~reg0.CLK
+D[0] => Q[0]~reg0.DATAIN
+D[1] => Q[1]~reg0.DATAIN
+D[2] => Q[2]~reg0.DATAIN
+D[3] => Q[3]~reg0.DATAIN
+D[4] => Q[4]~reg0.DATAIN
+D[5] => Q[5]~reg0.DATAIN
+D[6] => Q[6]~reg0.DATAIN
+D[7] => Q[7]~reg0.DATAIN
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[4] <= Q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[5] <= Q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[6] <= Q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[7] <= Q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fifo_final|FIFO:fifo_int|complement_a_2:comp2
+nombre[0] => Add0.IN16
+nombre[1] => Add0.IN15
+nombre[2] => Add0.IN14
+nombre[3] => Add0.IN13
+nombre[4] => Add0.IN12
+nombre[5] => Add0.IN11
+nombre[6] => Add0.IN10
+nombre[7] => Add0.IN9
+sortie[0] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+sortie[1] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+sortie[2] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+sortie[3] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+sortie[4] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+sortie[5] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+sortie[6] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+sortie[7] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fifo_final|FIFO:fifo_int|genHL:genHLI
+clk => compteur_decompteur_N:compteur.clk
+reset => raz.IN1
+ENREAD <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+ENWRITE <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fifo_final|FIFO:fifo_int|genHL:genHLI|compteur_decompteur_N:compteur
+UpDown => tmp.OUTPUTSELECT
+UpDown => tmp.OUTPUTSELECT
+UpDown => tmp.OUTPUTSELECT
+UpDown => tmp.OUTPUTSELECT
+UpDown => tmp.OUTPUTSELECT
+UpDown => tmp.OUTPUTSELECT
+UpDown => tmp.OUTPUTSELECT
+UpDown => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+clk => tmp[0].CLK
+clk => tmp[1].CLK
+clk => tmp[2].CLK
+clk => tmp[3].CLK
+clk => tmp[4].CLK
+clk => tmp[5].CLK
+clk => tmp[6].CLK
+clk => tmp[7].CLK
+EN => tmp[0].ENA
+EN => tmp[7].ENA
+EN => tmp[6].ENA
+EN => tmp[5].ENA
+EN => tmp[4].ENA
+EN => tmp[3].ENA
+EN => tmp[2].ENA
+EN => tmp[1].ENA
+q[0] <= tmp[0].DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= tmp[1].DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= tmp[2].DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= tmp[3].DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= tmp[4].DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= tmp[5].DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= tmp[6].DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= tmp[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fifo_final|FIFO:fifo_int|SEQ:seqI
+ENW => process_0.IN0
+reset => HL~reg0.ACLR
+reset => incwrite~reg0.ACLR
+reset => incread~reg0.ACLR
+reset => CS_n~reg0.PRESET
+reset => RW_n~reg0.PRESET
+reset => OE~reg0.PRESET
+reset => Selread~reg0.ACLR
+reset => Ack~reg0.PRESET
+reset => state~3.DATAIN
+clk => HL~reg0.CLK
+clk => incwrite~reg0.CLK
+clk => incread~reg0.CLK
+clk => CS_n~reg0.CLK
+clk => RW_n~reg0.CLK
+clk => OE~reg0.CLK
+clk => Selread~reg0.CLK
+clk => Ack~reg0.CLK
+clk => state~1.DATAIN
+ENR => state.OUTPUTSELECT
+ENR => state.OUTPUTSELECT
+ENR => state.OUTPUTSELECT
+ENR => state.OUTPUTSELECT
+ENR => state.DATAB
+ENR => state.DATAB
+REQ => state.DATAA
+REQ => process_0.IN1
+REQ => state.DATAA
+Ack <= Ack~reg0.DB_MAX_OUTPUT_PORT_TYPE
+CS_n <= CS_n~reg0.DB_MAX_OUTPUT_PORT_TYPE
+RW_n <= RW_n~reg0.DB_MAX_OUTPUT_PORT_TYPE
+OE <= OE~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Selread <= Selread~reg0.DB_MAX_OUTPUT_PORT_TYPE
+HL <= HL~reg0.DB_MAX_OUTPUT_PORT_TYPE
+incread <= incread~reg0.DB_MAX_OUTPUT_PORT_TYPE
+incwrite <= incwrite~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fifo_final|FIFO:fifo_int|genaddr:genaddrI
+reset => compteur_decompteur_N:compteuur_read.reset
+reset => compteur_decompteur_N:compteur_write.reset
+clk => compteur_decompteur_N:compteuur_read.clk
+clk => compteur_decompteur_N:compteur_write.clk
+incread => compteur_decompteur_N:compteuur_read.EN
+incwrite => compteur_decompteur_N:compteur_write.EN
+selread => Adrg.OUTPUTSELECT
+selread => Adrg.OUTPUTSELECT
+selread => Adrg.OUTPUTSELECT
+selread => Adrg.OUTPUTSELECT
+Adrg[0] <= Adrg.DB_MAX_OUTPUT_PORT_TYPE
+Adrg[1] <= Adrg.DB_MAX_OUTPUT_PORT_TYPE
+Adrg[2] <= Adrg.DB_MAX_OUTPUT_PORT_TYPE
+Adrg[3] <= Adrg.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fifo_final|FIFO:fifo_int|genaddr:genaddrI|compteur_decompteur_N:compteuur_read
+UpDown => tmp.OUTPUTSELECT
+UpDown => tmp.OUTPUTSELECT
+UpDown => tmp.OUTPUTSELECT
+UpDown => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+clk => tmp[0].CLK
+clk => tmp[1].CLK
+clk => tmp[2].CLK
+clk => tmp[3].CLK
+EN => tmp[0].ENA
+EN => tmp[3].ENA
+EN => tmp[2].ENA
+EN => tmp[1].ENA
+q[0] <= tmp[0].DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= tmp[1].DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= tmp[2].DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= tmp[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fifo_final|FIFO:fifo_int|genaddr:genaddrI|compteur_decompteur_N:compteur_write
+UpDown => tmp.OUTPUTSELECT
+UpDown => tmp.OUTPUTSELECT
+UpDown => tmp.OUTPUTSELECT
+UpDown => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+clk => tmp[0].CLK
+clk => tmp[1].CLK
+clk => tmp[2].CLK
+clk => tmp[3].CLK
+EN => tmp[0].ENA
+EN => tmp[3].ENA
+EN => tmp[2].ENA
+EN => tmp[1].ENA
+q[0] <= tmp[0].DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= tmp[1].DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= tmp[2].DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= tmp[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fifo_final|FIFO:fifo_int|RAM_2pMxNbits:ram
+OE => Dout[0]_81.DATAIN
+RW_n => Dout[0]$latch.LATCH_ENABLE
+RW_n => Dout[0]_81.LATCH_ENABLE
+RW_n => Dout[1]$latch.LATCH_ENABLE
+RW_n => Dout[2]$latch.LATCH_ENABLE
+RW_n => Dout[3]$latch.LATCH_ENABLE
+RW_n => Dout[4]$latch.LATCH_ENABLE
+RW_n => Dout[5]$latch.LATCH_ENABLE
+RW_n => Dout[6]$latch.LATCH_ENABLE
+RW_n => Dout[7]$latch.LATCH_ENABLE
+RW_n => data.we_a.DATAB
+CS_n => Dout[0]$latch.ACLR
+CS_n => Dout[0]_81.ACLR
+CS_n => Dout[1]$latch.ACLR
+CS_n => Dout[2]$latch.ACLR
+CS_n => Dout[3]$latch.ACLR
+CS_n => Dout[4]$latch.ACLR
+CS_n => Dout[5]$latch.ACLR
+CS_n => Dout[6]$latch.ACLR
+CS_n => Dout[7]$latch.ACLR
+CS_n => data.we_a.OUTPUTSELECT
+Din[0] => data.DATAIN
+Din[1] => data.DATAIN1
+Din[2] => data.DATAIN2
+Din[3] => data.DATAIN3
+Din[4] => data.DATAIN4
+Din[5] => data.DATAIN5
+Din[6] => data.DATAIN6
+Din[7] => data.DATAIN7
+Adr[0] => data.RADDR
+Adr[0] => data.WADDR
+Adr[1] => data.RADDR1
+Adr[1] => data.WADDR1
+Adr[2] => data.RADDR2
+Adr[2] => data.WADDR2
+Adr[3] => data.RADDR3
+Adr[3] => data.WADDR3
+Dout[0] <= Dout[0].DB_MAX_OUTPUT_PORT_TYPE
+Dout[1] <= Dout[1].DB_MAX_OUTPUT_PORT_TYPE
+Dout[2] <= Dout[2].DB_MAX_OUTPUT_PORT_TYPE
+Dout[3] <= Dout[3].DB_MAX_OUTPUT_PORT_TYPE
+Dout[4] <= Dout[4].DB_MAX_OUTPUT_PORT_TYPE
+Dout[5] <= Dout[5].DB_MAX_OUTPUT_PORT_TYPE
+Dout[6] <= Dout[6].DB_MAX_OUTPUT_PORT_TYPE
+Dout[7] <= Dout[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fifo_final|FIFO:fifo_int|fastslow:fs
+reset => compteur_decompteur_N:compteur_write.reset
+clk => compteur_decompteur_N:compteur_write.clk
+incread => EN.IN0
+incwrite => EN.IN1
+incwrite => compteur_decompteur_N:compteur_write.UpDown
+fast <= fast.DB_MAX_OUTPUT_PORT_TYPE
+slow <= slow.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fifo_final|FIFO:fifo_int|fastslow:fs|compteur_decompteur_N:compteur_write
+UpDown => tmp.OUTPUTSELECT
+UpDown => tmp.OUTPUTSELECT
+UpDown => tmp.OUTPUTSELECT
+UpDown => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+reset => tmp.OUTPUTSELECT
+clk => tmp[0].CLK
+clk => tmp[1].CLK
+clk => tmp[2].CLK
+clk => tmp[3].CLK
+EN => tmp[0].ENA
+EN => tmp[3].ENA
+EN => tmp[2].ENA
+EN => tmp[1].ENA
+q[0] <= tmp[0].DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= tmp[1].DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= tmp[2].DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= tmp[3].DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,17 @@
+<interfaceDefinition version='1.2' language='vhdl' kind='component' name='compteur_decompteur_N'>
+  <useClause path='ieee.STD_LOGIC_UNSIGNED.all' />
+  <useClause path='ieee.std_logic_1164.all' />
+    <macroList>
+
+      <macro name='N' type='NATURAL' kind='' baseType='integer' initializer='8' />
+
+    </macroList>
+    <portList>
+
+      <port name='UpDown' direction='in' type='STD_LOGIC' kind='' />
+      <port name='reset' direction='in' type='STD_LOGIC' kind='' />
+      <port name='clk' direction='in' type='STD_LOGIC' kind='' />
+      <port name='q' direction='out' type='std_logic_vector (N - 1 downto 0)' kind='array' library='work' package='compteur_decompteur_N' packedDimension=' (N - 1 downto 0)' />
+
+    </portList>
+</interfaceDefinition>

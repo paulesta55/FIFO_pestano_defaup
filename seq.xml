@@ -1,0 +1,26 @@
+<interfaceDefinition version='1.2' language='vhdl' kind='component' name='SEQ'>
+  <useClause path='ieee.STD_LOGIC_UNSIGNED.all' />
+  <useClause path='ieee.std_logic_1164.all' />
+    <macroList>
+
+      <macro name='N' type='NATURAL' kind='' baseType='integer' initializer='8' />
+
+    </macroList>
+    <portList>
+
+      <port name='ENW' direction='in' type='STD_LOGIC' kind='' />
+      <port name='reset' direction='in' type='STD_LOGIC' kind='' />
+      <port name='clk' direction='in' type='STD_LOGIC' kind='' />
+      <port name='ENR' direction='in' type='STD_LOGIC' kind='' />
+      <port name='REQ' direction='in' type='STD_LOGIC' kind='' />
+      <port name='Ack' direction='out' type='STD_LOGIC' kind='' />
+      <port name='CS_n' direction='out' type='STD_LOGIC' kind='' />
+      <port name='RW_n' direction='out' type='STD_LOGIC' kind='' />
+      <port name='OE' direction='out' type='STD_LOGIC' kind='' />
+      <port name='Selread' direction='out' type='STD_LOGIC' kind='' />
+      <port name='HL' direction='out' type='STD_LOGIC' kind='' />
+      <port name='incread' direction='out' type='STD_LOGIC' kind='' />
+      <port name='incwrite' direction='out' type='STD_LOGIC' kind='' />
+
+    </portList>
+</interfaceDefinition>

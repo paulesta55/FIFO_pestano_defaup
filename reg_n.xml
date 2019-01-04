@@ -1,0 +1,19 @@
+<interfaceDefinition version='1.2' language='vhdl' kind='component' name='reg_N'>
+  <useClause path='work.CHECK_PKG.all' />
+  <useClause path='ieee.STD_LOGIC_UNSIGNED.all' />
+  <useClause path='ieee.std_logic_1164.all' />
+    <macroList>
+
+      <macro name='t_setup' type='TIME' kind='' baseType='physical' initializer='5 ns' />
+      <macro name='N' type='NATURAL' kind='' baseType='integer' initializer='8' />
+
+    </macroList>
+    <portList>
+
+      <port name='reset' direction='in' type='STD_LOGIC' kind='' />
+      <port name='clk' direction='in' type='STD_LOGIC' kind='' />
+      <port name='D' direction='in' type='std_logic_vector (N - 1 downto 0)' kind='array' library='work' package='reg_N' packedDimension=' (N - 1 downto 0)' />
+      <port name='Q' direction='out' type='std_logic_vector (N - 1 downto 0)' kind='array' library='work' package='reg_N' packedDimension=' (N - 1 downto 0)' />
+
+    </portList>
+</interfaceDefinition>

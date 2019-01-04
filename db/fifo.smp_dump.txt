@@ -1,0 +1,15 @@
+
+State Machine - |fifo_final|FIFO:fifo_int|SEQ:seqI|state
+Name state.WT state.W state.R2 state.R1 state.Rest 
+state.Rest 0 0 0 0 0 
+state.R1 0 0 0 1 1 
+state.R2 0 0 1 0 1 
+state.W 0 1 0 0 1 
+state.WT 1 0 0 0 1 
+
+State Machine - |fifo_final|data_supply:data_sup|seq_fifo_data_supply:U_seq|etat_present
+Name etat_present.att_cptr etat_present.att_ack etat_present.ecriture etat_present.repos 
+etat_present.repos 0 0 0 0 
+etat_present.ecriture 0 0 1 1 
+etat_present.att_ack 0 1 0 1 
+etat_present.att_cptr 1 0 0 1 
